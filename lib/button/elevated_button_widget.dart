@@ -37,6 +37,7 @@ class ElevatedButtonWidget extends StatelessWidget {
         shape:
             buttonShape ??
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+
       ),
 
       /// PUT WIDGET IN BUTTON.

@@ -49,6 +49,7 @@ class TextFieldWidget extends StatelessWidget {
     this.isReadOnly = false,
     this.onTapTextField,
     this.isPass = false,
+    this.suffixIconColor,
     super.key,
   });
 
@@ -81,6 +82,7 @@ class TextFieldWidget extends StatelessWidget {
   final IconData? suffixIcon;
   final void Function()? onTapSuffixIcon;
   final String? suffixText;
+  final Color? suffixIconColor;
 
   // borders.
   final bool isEnable;
@@ -218,7 +220,7 @@ class TextFieldWidget extends StatelessWidget {
         /// SUFFIX
         suffixIcon: IconButton(
           onPressed: onTapSuffixIcon,
-          icon: Icon(suffixIcon),
+          icon: Icon(suffixIcon,color: suffixIconColor ?? Colors.black,),
         ),
         suffixText: suffixText,
 
