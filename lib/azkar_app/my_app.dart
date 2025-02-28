@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:testflutter/azkar_app/about_screen.dart';
+import 'package:testflutter/azkar_app/out_boarding_screen.dart';
 
 import 'azkar_home.dart';
 import 'launch_screen.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/launch_screen': (context) => LaunchScreen(),
         '/home_screen': (context) => AzkarHome(),
         '/about_screen': (context) => AboutScreen(),
+        '/outBoarding_screen': (context) => OutBoardingScreen(),
       },
       initialRoute: '/launch_screen',
       title: 'Azkar App',
