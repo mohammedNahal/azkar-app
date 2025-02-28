@@ -5,14 +5,14 @@ import 'package:testflutter/validator/SOLID/single_responsibility.dart';
 
 import '../text_field/text_form_field_widget.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreenTextFormField extends StatefulWidget {
+  const LoginScreenTextFormField({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenTextFormField> createState() => _LoginScreenTextFormFieldState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenTextFormFieldState extends State<LoginScreenTextFormField> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
   final _formKey = GlobalKey<FormState>();
