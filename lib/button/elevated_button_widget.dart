@@ -7,6 +7,8 @@ class ElevatedButtonWidget extends StatelessWidget {
     this.width = double.infinity,
     this.height = 50,
     this.buttonShape,
+    this.backgroundColor,
+    this.childColor,
     super.key,
   });
 
@@ -21,6 +23,12 @@ class ElevatedButtonWidget extends StatelessWidget {
 
   // shape button.
   OutlinedBorder? buttonShape;
+
+  // background color.
+  Color? backgroundColor;
+
+  // foreground Color.
+  Color? childColor;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +46,11 @@ class ElevatedButtonWidget extends StatelessWidget {
             buttonShape ??
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
 
+        /// Background Color.
+        backgroundColor: backgroundColor ?? Colors.black,
+
+        /// Child Color.
+        foregroundColor: childColor ?? Colors.white,
       ),
 
       /// PUT WIDGET IN BUTTON.

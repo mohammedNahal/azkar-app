@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({
+class TextFormFieldWidget extends StatelessWidget {
+   TextFormFieldWidget({
     required this.controller,
     this.hint,
     this.hintDuration,
@@ -54,8 +54,9 @@ class TextFieldWidget extends StatelessWidget {
     this.focusedErrorColorOutline,
     this.focusedErrorRadiusOutline = 10,
     this.focusedErrorWidthOutline = 1,
+    this.onValidator,
     super.key,
-  });
+});
 
   // controller textField
   final TextEditingController controller;
@@ -112,19 +113,19 @@ class TextFieldWidget extends StatelessWidget {
 
   // here is management style of counter.
   final Widget? Function(
-    /// The build context.
-    BuildContext, {
+      /// The build context.
+      BuildContext, {
 
-    /// The length of the string currently in the input.
-    required int currentLength,
+      /// The length of the string currently in the input.
+      required int currentLength,
 
-    /// Whether or not the TextField is currently focused. Mainly provided for
-    /// the [liveRegion] parameter in the [Semantics] widget for accessibility.
-    required bool isFocused,
+      /// Whether or not the TextField is currently focused. Mainly provided for
+      /// the [liveRegion] parameter in the [Semantics] widget for accessibility.
+      required bool isFocused,
 
-    /// The maximum string length that can be entered into the TextField.
-    required int? maxLength,
-  })?
+      /// The maximum string length that can be entered into the TextField.
+      required int? maxLength,
+      })?
   buildCounter;
   final String? counterText;
 
@@ -163,9 +164,11 @@ class TextFieldWidget extends StatelessWidget {
   // is password
   final bool isPass;
 
+  // validator
+  String? Function(String?)? onValidator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       /// KEYBOARD TYPE
       keyboardType: keyboardType,
 
@@ -194,6 +197,9 @@ class TextFieldWidget extends StatelessWidget {
 
       /// ON CHANGE AND EDITING TEXT INPUT TEXT FIELD
       onChanged: onChange,
+
+      /// ON VALIDATOR TEXT FORM FIELD SETTING.
+      validator: onValidator,
 
       /// MANAGEMENT ON TAP TEXT FIELD
       onTap: onTapTextField,
@@ -284,7 +290,6 @@ class TextFieldWidget extends StatelessWidget {
       ),
     );
   }
-
   /// Function it be return Outline border
   OutlineInputBorder myBorder({
     Color color = Colors.grey,
