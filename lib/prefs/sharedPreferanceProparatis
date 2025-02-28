@@ -1,0 +1,12 @@
+=> SHARED PREFS. <=
+1. This class must be un-unable to be an object.
+2. How can I prevent a class from becoming an object?
+    a. The constructor must be closed.How?
+           We create a Named Privet constructor.
+    b. Create an static final privet instant for the named constructor class.
+        It's called "Singleton design pattern".
+3. The constructor used must be of the factory type
+    and this constructor must return either a new object or an instantaneous one.
+4. By using this factory constructor, when we use it, it returns the same object that is in the class
+    , and thus we have prevented the creation of an object from the class.
+

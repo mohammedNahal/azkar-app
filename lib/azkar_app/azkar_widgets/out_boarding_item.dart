@@ -10,7 +10,7 @@ class OutBoardingItem extends StatelessWidget {
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(radius: 50),
+            CircleAvatar(radius: 50,backgroundColor: Colors.deepOrange.shade300,),
             SizedBox(height: 10),
             Text(
               'محمد النحال',

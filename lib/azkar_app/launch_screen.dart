@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../prefs/shared_pref_controller.dart';
+
 class LaunchScreen extends StatefulWidget {
   const LaunchScreen({super.key});
 
@@ -12,8 +14,10 @@ class _LaunchScreenState extends State<LaunchScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    print('IS Login? ${SharedPrefController().isLoggedIn}');
+    String route = SharedPrefController().isLoggedIn ? '/home_screen' : '/outBoarding_screen';
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, '/outBoarding_screen');
+      Navigator.pushReplacementNamed(context, route);
     });
   }
 

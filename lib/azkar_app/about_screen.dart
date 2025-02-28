@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/prefs/shared_pref_controller.dart';
 
 class AboutScreen extends StatelessWidget {
-  String _message = 'عن التطبيق';
-
+  // String _message = 'عن التطبيق';
+  final String _email = SharedPrefController().theEmail ?? 'لا يوجد ايميل';
   AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ModalRoute? route = ModalRoute.of(context);
-    if (route != null) {
-      Map<String, dynamic> arguments =
-          route.settings.arguments as Map<String, dynamic>;
-      if (arguments.containsKey('message')) {
-        _message = arguments['message'];
-      }
-    }
+    // ModalRoute? route = ModalRoute.of(context);
+    // if (route != null) {
+    //   Map<String, dynamic> arguments =
+    //       route.settings.arguments as Map<String, dynamic>;
+    //   if (arguments.containsKey('message')) {
+    //     _message = arguments['message'];
+    //   }
+    // }
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -29,7 +30,8 @@ class AboutScreen extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          _message,
+          _email,
+          // _message,
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,

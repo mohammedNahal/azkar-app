@@ -1,0 +1,3 @@
+enum PrefKey{
+  loggedIn, email
+}

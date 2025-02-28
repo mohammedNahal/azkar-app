@@ -50,7 +50,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                         ? () {
                           Navigator.pushReplacementNamed(
                             context,
-                            '/home_screen',
+                            '/login_screen',
                           );
                         }
                         : () {
@@ -62,7 +62,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                             curve: Curves.bounceIn,
                           );
                         },
-                child: Text(start_skip()),
+                child: Text(start_skip(),style: TextStyle(color: Colors.deepOrange.shade300,),),
               ),
             ),
           ),
@@ -102,7 +102,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                             );
                           }
                           : null,
-                  icon: Icon(Icons.arrow_back_ios),
+                  icon: Icon(Icons.arrow_back_ios,color: _pageNum < 2 ? Colors.deepOrange.shade300 : Colors.grey,),
                 ),
                 Row(
                   children: [
@@ -127,7 +127,7 @@ class _OutBoardingScreenState extends State<OutBoardingScreen> {
                               curve: Curves.bounceIn,
                             );
                           },
-                  icon: Icon(Icons.arrow_forward_ios),
+                  icon: Icon(Icons.arrow_forward_ios,color: _pageNum == 0 ? Colors.grey : Colors.deepOrange.shade300,),
                 ),
               ],
             ),

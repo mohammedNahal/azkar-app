@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/azkar_app/about_app_screen.dart';
+import 'package:testflutter/azkar_app/about_screen.dart';
+import 'package:testflutter/prefs/shared_pref_controller.dart';
 
 class AzkarHome extends StatefulWidget {
   const AzkarHome({super.key});
@@ -11,6 +13,12 @@ class AzkarHome extends StatefulWidget {
 class _AzkarHomeState extends State<AzkarHome> {
   int _count = 0;
   String _content = 'الحمدلله';
+
+  @override
+  void initState() {
+    super.initState();
+    print("logged in ${SharedPrefController().isLoggedIn}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +65,7 @@ class _AzkarHomeState extends State<AzkarHome> {
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => AboutAppScreen(
-                        message: 'مرحبا بكم في شاشة عن التطبيق',
-                      ),
+                      (context) => AboutScreen(),
                 ),
               );
               // Navigator.pushNamed(
@@ -69,6 +75,12 @@ class _AzkarHomeState extends State<AzkarHome> {
               // );
             },
             icon: Icon(Icons.info_outline),
+          ),
+          IconButton(
+            onPressed: () {
+              logout();
+            },
+            icon: Icon(Icons.logout),
           ),
         ],
       ),
@@ -184,5 +196,10 @@ class _AzkarHomeState extends State<AzkarHome> {
         ),
       ),
     );
+  }
+
+  Future<void> logout()async{
+    await SharedPrefController().logout();
+    Navigator.pushReplacementNamed(context, '/login_screen');
   }
 }
